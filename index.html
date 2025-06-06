@@ -6,15 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
+        body { 
             background: #e5eefb;
-            /* Logo chìm nhân bản chéo chéo bay bay */
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            z-index: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background-image:
-                url('https://drive.google.com/file/d/1gIX1q-rZ75i3ydwD_J1H6LBmVUUWW3ZW/view?usp=sharing'),
-                url('https://drive.google.com/file/d/1gIX1q-rZ75i3ydwD_J1H6LBmVUUWW3ZW/view?usp=sharing');
+                url('https://drive.google.com/uc?export=view&id=1gIX1q-rZ75i3ydwD_J1H6LBmVUUWW3ZW'),
+                url('https://drive.google.com/uc?export=view&id=1gIX1q-rZ75i3ydwD_J1H6LBmVUUWW3ZW');
             background-size: 220px 110px, 220px 110px;
             background-position: 0 0, 110px 55px;
             background-repeat: repeat;
+            opacity: 0.08; /* chỉnh mức chìm ở đây */
+            pointer-events: none;
+        }
+        .logo-on-top {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 0.7rem;
+            position: relative;
+            z-index: 1;
+        }
+        .logo-on-top img {
+            height: 56px;
+            width: auto;
+            opacity: 0.96;
         }
         .company-info {
             background: rgba(255,255,255,0.91);
@@ -45,16 +65,6 @@
         .company-info .label {
             font-weight: 600;
         }
-        .logo-on-top {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 0.7rem;
-        }
-        .logo-on-top img {
-            height: 56px;
-            width: auto;
-            opacity: 0.96;
-        }
         .label-en {
             font-size:0.98em;
             color:#2563eb;
@@ -70,7 +80,7 @@
 
     <!-- Logo nổi trên cùng -->
     <div class="logo-on-top">
-        <img src="https://drive.google.com/file/d/1gIX1q-rZ75i3ydwD_J1H6LBmVUUWW3ZW/view?usp=sharing" alt="EZ Maya Logo">
+        <img src="https://drive.google.com/uc?export=view&id=1gIX1q-rZ75i3ydwD_J1H6LBmVUUWW3ZW" alt="EZ Maya Logo">
     </div>
 
     <div class="max-w-3xl mx-auto bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-blue-200 mt-6">
@@ -191,7 +201,7 @@
     </div>
 
     <script>
-        // ĐIỀN URL APPS SCRIPT WEB APP CỦA BẠN VÀO ĐÂY
+        // NHẬP URL Apps Script Web App của bạn vào đây:
         const GOOGLE_APPS_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz2hJguCyfPk1kkhZJhkEwgNv69bt1JIp4IXdZMX8riQLVZr_3gzwc7o_XZPJo5j1ez4w/exec';
 
         function showModal(message) {
