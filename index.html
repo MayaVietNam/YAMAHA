@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>ĐĂNG KÝ THUÊ THIẾT BỊ WIFI (BUDGET CODE)</title>
+    <title>ĐƠN ĐĂNG KÝ THUÊ THIẾT BỊ WIFI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -38,9 +38,9 @@
 <body class="p-4 sm:p-8">
     <div class="max-w-3xl mx-auto bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-blue-200 mt-6">
         <h1 class="text-3xl font-extrabold text-center text-blue-900 mb-6 tracking-widest uppercase">
-            ĐĂNG KÝ THUÊ THIẾT BỊ WIFI (BUDGET CODE)
+            ĐƠN ĐĂNG KÝ THUÊ WIFI
             <br>
-            <span class="text-lg font-bold label-en uppercase">WIFI DEVICE RENTAL REGISTRATION (BUDGET CODE)</span>
+            <span class="text-lg font-bold label-en uppercase">WIFI RENTAL REGISTRATION FORM</span>
         </h1>
         <p class="text-blue-900 text-center mb-8 font-medium">
             Vui lòng điền thông tin người thuê thiết bị Wi-Fi dưới đây. Quý khách có thể thêm nhiều đơn đăng ký cùng lúc.
@@ -92,6 +92,24 @@
                 </label>
                 <input type="text" id="company-name" name="company-name" class="w-full px-4 py-2 border border-blue-300 rounded-lg text-blue-900" placeholder="Tên công ty của bạn / Your company">
             </div>
+            <div>
+                <label for="tax-code" class="block text-blue-800 text-sm font-semibold mb-2">
+                    Mã số thuế
+                    <span class="label-en">Tax Code</span>
+                </label>
+                <input type="text" id="tax-code" name="tax-code" class="w-full px-4 py-2 border border-blue-300 rounded-lg text-blue-900" placeholder="Mã số thuế công ty / Company tax code">
+            </div>
+            <div>
+                <label for="region" class="block text-blue-800 text-sm font-semibold mb-2">
+                    Khu vực
+                    <span class="label-en">Region</span>
+                </label>
+                <select id="region" name="region" class="w-full px-4 py-2 border border-blue-300 rounded-lg text-blue-900" required>
+                    <option value="">-- Chọn khu vực / Select region --</option>
+                    <option value="HQ">HQ</option>
+                    <option value="HNO">HNO</option>
+                </select>
+            </div>
         </div>
 
         <div class="flex justify-center">
@@ -117,7 +135,7 @@
 
     <script>
         // Dán URL Google Apps Script Web App của bạn vào đây:
-        const GOOGLE_APPS_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby4m3uWNgLRLnBTPWIFLJCtnWQDhWK2aRWlyy1Th3-pRgFkPyiCRbnKfg24nuY6B26XIg/exec';
+        const GOOGLE_APPS_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz2hJguCyfPk1kkhZJhkEwgNv69bt1JIp4IXdZMX8riQLVZr_3gzwc7o_XZPJo5j1ez4w/exec';
 
         function showModal(message) {
             const modal = document.getElementById('statusModal');
@@ -206,10 +224,10 @@
                         </div>
                         <div class="col-span-1 md:col-span-2">
                             <label for="budget-code-${requestCounter}" class="block text-blue-800 text-sm font-semibold mb-2">
-                                Budget Code
+                                Mã Thanh Toán
                                 <span class="label-en">Budget Code</span>
                             </label>
-                            <input type="text" id="budget-code-${requestCounter}" name="budget-code-${requestCounter}" class="w-full px-4 py-2 border border-blue-300 rounded-lg text-blue-900" placeholder="Điền Budget Code / Enter budget code (if any)">
+                            <input type="text" id="budget-code-${requestCounter}" name="budget-code-${requestCounter}" class="w-full px-4 py-2 border border-blue-300 rounded-lg text-blue-900" placeholder="Điền Mã Thanh Toán / Enter budget code (if any)">
                         </div>
                     </div>
                 `;
@@ -267,7 +285,9 @@
                         name: document.getElementById('sender-name').value,
                         email: document.getElementById('sender-email').value,
                         phone: document.getElementById('sender-phone').value,
-                        company: document.getElementById('company-name').value
+                        company: document.getElementById('company-name').value,
+                        taxCode: document.getElementById('tax-code').value,
+                        region: document.getElementById('region').value
                     },
                     rentalRequests: []
                 };
