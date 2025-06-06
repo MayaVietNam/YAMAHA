@@ -17,14 +17,28 @@
       min-height: 100vh;
       position: relative;
       box-sizing: border-box;
+      overflow-x: hidden;
     }
-    /* Nền logo full màn hình, lặp đều, không nghiêng để không bị cắt góc */
-    body {
-      background-image: url('https://i.postimg.cc/KYm6XNDL/EZ-LOGO-07.png');
-      background-size: 160px auto;
-      background-position: center center;
+    /* Logo background phủ toàn màn, nghiêng nhẹ, không cắt góc, lặp đều */
+    .bg-logo-bg {
+      pointer-events: none;
+      position: fixed;
+      z-index: 0;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      overflow: hidden;
+    }
+    .bg-logo-bg-inner {
+      position: absolute;
+      left: 50%; top: 50%;
+      width: 200vw;
+      height: 200vh;
+      transform: translate(-50%, -50%) rotate(-10deg);
+      background-image: url('https://i.postimg.cc/yd4v4YHG/EZ-LOGO-31.png');
       background-repeat: repeat;
-      background-attachment: fixed;
+      background-size: 120px auto;
+      opacity: 0.07;
+      /* Có thể tăng/giảm opacity tuỳ ý */
+      will-change: transform;
     }
     /* Logo nổi trên cùng */
     .logo-on-top {
@@ -32,7 +46,7 @@
       justify-content: center;
       margin-bottom: 0.7rem;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
     .logo-on-top img {
       height: 56px;
@@ -47,7 +61,7 @@
       border: 1px solid #bee3f8;
       padding: 2rem;
       position: relative;
-      z-index: 2;
+      z-index: 3;
     }
     .company-info {
       background: #fff;
@@ -57,7 +71,7 @@
       padding: 1.2rem 1.5rem;
       text-align: center;
       position: relative;
-      z-index: 2;
+      z-index: 3;
     }
     .company-info h2 {
       font-size: 1.3rem;
@@ -131,6 +145,9 @@
   </style>
 </head>
 <body class="p-4 sm:p-8">
+
+  <!-- Logo nền phủ full màn nghiêng nhẹ, luôn đủ góc -->
+  <div class="bg-logo-bg"><div class="bg-logo-bg-inner"></div></div>
 
   <!-- Logo nổi trên cùng -->
   <div class="logo-on-top">
@@ -213,7 +230,6 @@
         <input type="text" id="tax-code" name="tax-code" class="w-full px-4 py-2 border border-blue-300 rounded-lg text-blue-900" placeholder="Mã số thuế công ty / Company tax code">
       </div>
     </div>
-
     <div class="flex justify-center">
       <button id="submit-form-btn" type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-xl transition duration-300 text-lg">
         <span id="submit-text">
