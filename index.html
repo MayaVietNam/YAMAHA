@@ -40,7 +40,7 @@
         <h1 class="text-3xl font-extrabold text-center text-blue-900 mb-6 tracking-widest uppercase">
             ĐƠN ĐĂNG KÝ THUÊ THIẾT BỊ WIFI
             <br>
-            <span class="text-lg font-bold label-en uppercase">WIFI RENTAL REGISTRATION FORM</span>
+            <span class="text-lg font-bold label-en uppercase">WIFI DEVICE RENTAL REGISTRATION FORM</span>
         </h1>
         <p class="text-blue-900 text-center mb-8 font-medium">
             Vui lòng điền thông tin người thuê thiết bị Wi-Fi dưới đây. Quý khách có thể thêm nhiều đơn đăng ký cùng lúc.
@@ -93,22 +93,22 @@
                 <input type="text" id="company-name" name="company-name" class="w-full px-4 py-2 border border-blue-300 rounded-lg text-blue-900" placeholder="Tên công ty của bạn / Your company">
             </div>
             <div>
-                <label for="tax-code" class="block text-blue-800 text-sm font-semibold mb-2">
-                    Mã số thuế
-                    <span class="label-en">Tax Code</span>
-                </label>
-                <input type="text" id="tax-code" name="tax-code" class="w-full px-4 py-2 border border-blue-300 rounded-lg text-blue-900" placeholder="Mã số thuế công ty / Company tax code">
-            </div>
-            <div>
                 <label for="region" class="block text-blue-800 text-sm font-semibold mb-2">
                     Khu vực
                     <span class="label-en">Region</span>
                 </label>
                 <select id="region" name="region" class="w-full px-4 py-2 border border-blue-300 rounded-lg text-blue-900" required>
                     <option value="">-- Chọn khu vực / Select region --</option>
-                    <option value="HQ">HQ</option>
                     <option value="HNO">HNO</option>
+                    <option value="Nhà máy/Factory">Nhà máy/Factory</option>
                 </select>
+            </div>
+            <div>
+                <label for="tax-code" class="block text-blue-800 text-sm font-semibold mb-2">
+                    Mã số thuế
+                    <span class="label-en">Tax Code</span>
+                </label>
+                <input type="text" id="tax-code" name="tax-code" class="w-full px-4 py-2 border border-blue-300 rounded-lg text-blue-900" placeholder="Mã số thuế công ty / Company tax code">
             </div>
         </div>
 
@@ -286,8 +286,8 @@
                         email: document.getElementById('sender-email').value,
                         phone: document.getElementById('sender-phone').value,
                         company: document.getElementById('company-name').value,
-                        taxCode: document.getElementById('tax-code').value,
-                        region: document.getElementById('region').value
+                        region: document.getElementById('region').value,
+                        taxCode: document.getElementById('tax-code').value
                     },
                     rentalRequests: []
                 };
