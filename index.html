@@ -63,25 +63,33 @@
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
-            display: none; /* Ẩn theo mặc định cho thiết bị di động */
+            width: 150px;
+            transition: all 0.3s ease;
         }
         .banner-left {
-            left: 200px;
+            left: 20px;
         }
         .banner-right {
-            right: 200px;
+            right: 20px;
         }
         .banner-left img, .banner-right img {
-            width: 300px; /* Điều chỉnh kích thước theo nhu cầu */
+            width: 100%;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 2px solid #fff;
         }
-
-        @media (min-width: 1200px) { /* Hiển thị biểu ngữ trên màn hình lớn hơn */
+        
+        /* Ẩn banner trên mobile */
+        @media (max-width: 768px) {
             .banner-left, .banner-right {
-                display: block;
+                display: none;
             }
+        }
+        
+        /* Hiệu ứng khi hover */
+        .banner-left:hover, .banner-right:hover {
+            transform: translateY(-50%) scale(1.05);
         }
 
         @media (max-width: 520px) {
@@ -91,6 +99,16 @@
     </style>
 </head>
 <body class="p-4 sm:p-8">
+    <!-- Banner trái -->
+    <div class="banner-left">
+        <img src="https://via.placeholder.com/300x500/2563EB/FFFFFF?text=MAYA+BANNER+LEFT" alt="Banner quảng cáo trái">
+    </div>
+    
+    <!-- Banner phải -->
+    <div class="banner-right">
+        <img src="https://via.placeholder.com/300x500/DA1A32/FFFFFF?text=MAYA+BANNER+RIGHT" alt="Banner quảng cáo phải">
+    </div>
+
     <div class="bg-logo-bg"><div class="bg-logo-bg-inner"></div></div>
     <div class="logo-on-top">
         <img src="https://i.postimg.cc/VvSyGkBV/EZ-LOGO-08.png" alt="EZ Maya Logo">
