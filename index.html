@@ -8,7 +8,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
-    <!-- Nhớ đặt file price-table.js cùng thư mục -->
     <script src="price-table.js"></script>
     <style>
         html, body { height: 100%; margin: 0; padding: 0; min-height: 100vh; }
@@ -57,6 +56,34 @@
         .footer-company-info .en { color: #2563eb; font-weight: 500; font-size: 0.98em; margin-bottom: 0.2em; letter-spacing: 0.01em; }
         .footer-company-info .line { font-size: 1em; margin-bottom: 2px;}
         .footer-company-info .label { font-weight: 600; }
+
+        /* Styles for Banners */
+        .banner-left, .banner-right {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: none; /* Ẩn theo mặc định cho thiết bị di động */
+        }
+        .banner-left {
+            left: 200px;
+        }
+        .banner-right {
+            right: 200px;
+        }
+        .banner-left img, .banner-right img {
+            width: 300px; /* Điều chỉnh kích thước theo nhu cầu */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 1200px) { /* Hiển thị biểu ngữ trên màn hình lớn hơn */
+            .banner-left, .banner-right {
+                display: block;
+            }
+        }
+
         @media (max-width: 520px) {
             .form-container, .footer-company-info { padding: 1.25rem !important; border-radius: 8px; }
             .footer-company-info { font-size: 0.89em; }
@@ -167,7 +194,7 @@
         // --- CONFIG ---
         const PACKAGE_LIST = ["500MB/ngày", "1GB/ngày", "Không giới hạn"];
         const COUNTRY_LIST = typeof PRICE_TABLE !== 'undefined' ? Object.keys(PRICE_TABLE).sort() : [];
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRE1N1bv2HqN9l8BN_5Z_Rl75VQBJoX89CgXyOpXRW96J9h4v9BZsXjhJrsz3VantE9w/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxAlniq6uyMX2On_FU0du4Kh_rD7QVr69zUWX2i3WpAgPCt4mZrjYYJisIWUyhK329Crw/exec';
 
         // --- ELEMENTS ---
         const form = document.getElementById('wifi-form');
